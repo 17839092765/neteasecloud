@@ -4,8 +4,10 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
+  state: {
+    sidebar: false,
+  },
   mutations: {},
   actions: {},
-  modules: {}
+  modules: {},
 });

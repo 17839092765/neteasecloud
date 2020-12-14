@@ -1,13 +1,15 @@
 <template>
   <div class="find">
-    <h1>find</h1>
+    <div class="header">
+      <van-search v-model="value" placeholder="请输入搜索关键词" />
+    </div>
   </div>
 </template>
 
 <script>
   export default {
     data() {
-      return {};
+      return { value: "" };
     },
     computed: {},
     watch: {},
@@ -29,4 +31,10 @@
   };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .header {
+    height: 1rem;
+    width: 100%;
+    padding-left: 0.5rem;
+  }
+</style>
