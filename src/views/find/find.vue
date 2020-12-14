@@ -12,7 +12,11 @@
     computed: {},
     watch: {},
     methods: {},
-    created() {},
+    created() {
+      this.$request.get("/toplist/detail").then((res) => {
+        console.log(res);
+      });
+    },
     mounted() {},
     beforeCreate() {},
     beforeMount() {},
