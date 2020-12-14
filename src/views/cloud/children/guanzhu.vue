@@ -1,5 +1,5 @@
 <template>
-  <div class="guanzhu">关注</div>
+  <div class="guanzhu">关注1111222233333333</div>
 </template>
 
 <script>
