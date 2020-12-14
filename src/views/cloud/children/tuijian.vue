@@ -1,5 +1,5 @@
 <template>
-  <div class="tuijian">推荐11199999333333333</div>
+  <div class="tuijian">推荐</div>
 </template>
 
 <script>
