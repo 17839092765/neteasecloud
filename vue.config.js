@@ -1,39 +1,39 @@
-const path = require('path')
+const path = require("path");
 // const CompressionPlugin = require('compression-webpack-plugin') // compression-webpack-plugin插件需要npm安装
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 }
 module.exports = {
   lintOnSave: false, // 设置eslint报错时停止代码编译
   productionSourceMap: false, // 不需要生产环境的 source map（减小dist文件大小，加速构建）
   devServer: {
     open: true, // npm run serve后自动打开页面
-    host: '0.0.0.0', // 匹配本机IP地址(默认是0.0.0.0)
+    host: "0.0.0.0", // 匹配本机IP地址(默认是0.0.0.0)
     port: 8989, // 开发服务器运行端口号
-    proxy: {
-      '/api': {
-        // target: `http://127.0.0.1:8888`,  // 跨域代理  开发环境
-        target: `http://127.0.0.1:8888`, // 生产环境
-        // target: `http://127.0.0.1:8888/test/`,  // 开发环境
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    }
+    // proxy: {
+    //   '/api': {
+    //     // target: `http://127.0.0.1:8888`,  // 跨域代理  开发环境
+    //     target: `http://127.0.0.1:8888`, // 生产环境
+    //     // target: `http://127.0.0.1:8888/test/`,  // 开发环境
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api': ''
+    //     }
+    //   }
+    // }
   },
   chainWebpack: (config) => {
     // 移除 prefetch 插件(针对生产环境首屏请求数进行优化)
-    config.plugins.delete('prefetch')
+    config.plugins.delete("prefetch");
     // 移除 preload 插件(针对生产环境首屏请求数进行优化)   preload 插件的用途：https://cli.vuejs.org/zh/guide/html-and-static-assets.html#preload
-    config.plugins.delete('preload')
+    config.plugins.delete("preload");
     // 第1个参数：别名，第2个参数：路径  （设置路径别名）
     config.resolve.alias
-      .set('@pages', resolve('./src/page'))
-      .set('@router', resolve('./src/router'))
-      .set('@store', resolve('./src/store'))
-      .set('@utils', resolve('./src/utils'))
+      .set("@pages", resolve("./src/page"))
+      .set("@router", resolve("./src/router"))
+      .set("@store", resolve("./src/store"))
+      .set("@utils", resolve("./src/utils"));
   },
   // 配置打包 js、css文件为.gz格式，优化加载速度  （参考：https://blog.csdn.net/qq_31677507/article/details/102742196）
   // configureWebpack: config => {
@@ -58,4 +58,4 @@ module.exports = {
   //     }
   //   }
   // }
-}
+};
