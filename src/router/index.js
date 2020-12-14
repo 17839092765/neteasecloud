@@ -28,6 +28,16 @@ const routes = [
   {
     path: "/cloud",
     component: () => import("../views/cloud/cloud"),
+    children: [
+      {
+        path: "guanzhu",
+        component: () => import("../views/cloud/children/guanzhu.vue"),
+      },
+      {
+        path: "tuijian",
+        component: () => import("../views/cloud/children/tuijian.vue"),
+      },
+    ],
   },
 ];
 
