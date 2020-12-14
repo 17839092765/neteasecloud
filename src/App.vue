@@ -1,32 +1,62 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Header></Header>
+    <div class="main">
+      <router-view />
     </div>
-    <router-view />
+    <Footer></Footer>
   </div>
 </template>
 
+<script>
+  import Header from "./components/header";
+  import Footer from "./components/footer";
+  // import Home from "./views/home";
+  export default {
+    data() {
+      return {};
+    },
+    computed: {},
+    watch: {},
+    methods: {},
+    created() {},
+    mounted() {},
+    beforeCreate() {},
+    beforeMount() {},
+    beforeUpdate() {},
+    updated() {},
+    beforeDestroy() {},
+    destroyed() {},
+    activated() {},
+    components: { Header, Footer },
+  };
+</script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  html,
+  body,
+  #app {
+    height: 100%;
+  }
 
-#nav {
-  padding: 30px;
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  a {
-    font-weight: bold;
     color: #2c3e50;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  #nav {
+    a {
+      font-weight: bold;
+      color: #2c3e50;
 
-    &.router-link-exact-active {
-      color: #42b983;
+      &.router-link-exact-active {
+        color: #42b983;
+      }
     }
   }
-}
 </style>

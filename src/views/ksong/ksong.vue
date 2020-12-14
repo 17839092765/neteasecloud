@@ -1,12 +1,10 @@
 <template>
-  <div class="home">
-    <Footer></Footer>
-    <router-view></router-view>
+  <div class="ksong">
+    <h1>ksong</h1>
   </div>
 </template>
 
 <script>
-  import Footer from "../components/footer";
   export default {
     data() {
       return {};
@@ -23,9 +21,7 @@
     beforeDestroy() {},
     destroyed() {},
     activated() {},
-    components: {
-      Footer,
-    },
+    components: {},
   };
 </script>
 
