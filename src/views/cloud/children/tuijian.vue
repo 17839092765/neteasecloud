@@ -1,17 +1,11 @@
 <template>
-  <div class="cloud">
-    <van-tabs v-model="active">
-      <van-tab title="关注" to="/cloud/guanzhu"></van-tab>
-      <van-tab title="推荐" to="/cloud/tuijian"></van-tab>
-    </van-tabs>
-    <router-view></router-view>
-  </div>
+  <div class="tuijian">推荐</div>
 </template>
 
 <script>
 export default {
   data() {
-    return { active: 2 };
+    return {};
   },
   computed: {},
   watch: {},

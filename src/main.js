@@ -3,10 +3,18 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+import Vant from "vant";
+import "vant/lib/index.css";
+
+Vue.use(Vant);
+
+import request from "./util/request";
+Vue.prototype.$request = request;
+
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
