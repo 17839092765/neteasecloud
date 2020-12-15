@@ -1,15 +1,17 @@
 <template>
-  <div class="">
-    <!-- <router-link>1</router-link> -->
-    分类
-    <!-- http://121.4.58.185:3000/playlist/catlist -->
+  <div class="cloud">
+    <van-tabs v-model="active">
+      <van-tab title="关注" to="/cloud/guanzhu"></van-tab>
+      <van-tab title="推荐" to="/cloud/tuijian"></van-tab>
+    </van-tabs>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return { active: 2 };
   },
   computed: {},
   watch: {},

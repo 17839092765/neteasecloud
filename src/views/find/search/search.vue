@@ -123,7 +123,7 @@
     top: 1rem;
     left: 0;
     width: 100%;
-    bottom: 1rem;
+    bottom: 0;
     overflow: scroll;
     // z-index: 10;
     background: rgb(255, 255, 255);

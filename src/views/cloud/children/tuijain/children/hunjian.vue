@@ -1,9 +1,5 @@
 <template>
-  <div class="">
-    <!-- <router-link>1</router-link> -->
-    分类
-    <!-- http://121.4.58.185:3000/playlist/catlist -->
-  </div>
+  <div class="hunjian">混剪</div>
 </template>
 
 <script>
