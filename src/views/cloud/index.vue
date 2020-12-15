@@ -1,9 +1,12 @@
 <template>
   <div class="cloud">
-    <van-tabs v-model="active">
-      <van-tab title="关注" to="/cloud/guanzhu"></van-tab>
-      <van-tab title="推荐" to="/cloud/tuijian"></van-tab>
-    </van-tabs>
+    <van-sticky>
+      <van-tabs v-model="active">
+        <van-tab title="关注" to="/cloud/guanzhu"></van-tab>
+        <van-tab title="推荐" to="/cloud/tuijian"></van-tab>
+      </van-tabs>
+    </van-sticky>
+
     <router-view></router-view>
   </div>
 </template>

@@ -1,26 +1,31 @@
 <template>
   <div class="shipin">
     <!-- 搜索框 -->
-    <van-search v-model="value" placeholder="请输入搜索关键词" />
+    <van-search v-model="value" placeholder="请输入搜索关键词" @click="sou()" />
+
     <!-- 单元格 -->
     <ul>
-      <li>
+      <li v-for="item in Lists" :key="item.id">
         <div>
           <nav>
             <!--背景大图 -->
-            <img :src="songCoverUrl" class="da" />
+            <img :src="item.songCoverUrl" class="da" />
             <!-- 头像 -->
-            <img :src="avatar" class="tou" />
+            <img :src="item.avatar" class="tou" />
           </nav>
           <nav>
             <!-- 简介 -->
-            <h6>{{ content }}</h6>
+            <h6>{{ item.content }}</h6>
             <!-- 播放量 -->
-            <p class="bofang"><van-icon name="play-circle-o" />{{ likedCount }}</p>
+            <p class="bofang">
+              <van-icon name="play-circle-o" />{{ item.likedCount }}
+            </p>
             <!-- 点赞量 -->
-            <p class="zan"><van-icon name="thumb-circle-o" />{{ replyCount }}</p>
+            <p class="zan">
+              <van-icon name="thumb-circle-o" />{{ item.replyCount }}
+            </p>
             <!-- 姓名 -->
-            <span class="feng">{{ nickname }}</span>
+            <span class="feng">{{ item.nickname }}</span>
           </nav>
         </div>
       </li>
@@ -32,29 +37,46 @@
 export default {
   data() {
     return {
+      Lists: [],
       value: "",
-      songCoverUrl: "",
-      avatar: "",
-      content: "",
-      likedCount: "",
-      replyCount: "",
-      nickname: "",
     };
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+    getlists() {
+      // 循环将需要的数组重新组合拿到
+      this.$request.get("/comment/hotwall/list").then((res) => {
+        // console.log(res);
+        let lists = res.data;
+        for (let i = 0; i < lists.length; i++) {
+          let id = lists[i].id;
+          let songCoverUrl = lists[i].simpleResourceInfo.songCoverUrl;
+          let avatar = lists[i].simpleUserInfo.avatar;
+          let content = lists[i].content;
+          let likedCount = lists[i].likedCount;
+          let replyCount = lists[i].replyCount;
+          let nickname = lists[i].simpleUserInfo.nickname;
+          this.Lists.push({
+            id,
+            songCoverUrl,
+            avatar,
+            content,
+            likedCount,
+            replyCount,
+            nickname,
+          });
+        }
+
+        // console.log(this.Lists);
+      });
+    },
+    sou() {
+      this.$router.push("/cloud/tuijian/sou");
+    },
+  },
   created() {
-    //   调云村热评接口，头像+背景图
-    this.$request.get("/comment/hotwall/list").then((res) => {
-      console.log(res);
-      this.songCoverUrl = res.data[0].simpleResourceInfo.songCoverUrl;
-      this.avatar = res.data[0].simpleUserInfo.avatar;
-      this.content = res.data[0].content;
-      this.likedCount = res.data[0].likedCount;
-      this.replyCount = res.data[0].replyCount;
-      this.nickname = res.data[0].simpleUserInfo.nickname;
-    });
+    this.getlists();
   },
   mounted() {},
   beforeCreate() {},
@@ -69,6 +91,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 li {
   width: 40%;
   height: 5rem;
@@ -76,6 +103,7 @@ li {
   position: relative;
   border-radius: 8% 8%;
   overflow: hidden;
+  margin-top: 0.3rem;
 }
 .da {
   width: 100%;
@@ -103,17 +131,19 @@ h6 {
   margin-top: 0.9rem;
   margin-right: 0.3rem;
   color: #969595;
+  font-size: 0.2rem;
 }
 .zan {
   float: left;
   margin-top: 0.9rem;
   color: #969595;
+  font-size: 0.2rem;
 }
 
 .feng {
   float: right;
   margin-top: 0.85rem;
   margin-right: 0.2rem;
-  color: #969595;
+  color: #720000;
 }
 </style>
