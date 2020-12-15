@@ -47,43 +47,6 @@ const routes = [
   },
   {
     path: "/cloud",
-    component: () => import("../views/cloud/cloud"),
-    children: [
-      {
-        path: "guanzhu",
-        component: () => import("../views/cloud/children/guanzhu.vue"),
-      },
-      {
-        path: "tuijian",
-        component: () => import("../views/cloud/children/tuijian.vue"),
-      },
-    ],
-  },
-];
-const routes = [
-  {
-    path: "/",
-    redirect: "/find",
-  },
-
-  {
-    path: "/find",
-    component: () => import("../views/find/find"),
-  },
-  {
-    path: "/podcast",
-    component: () => import("../views/podcast/podcast"),
-  },
-  {
-    path: "/mine",
-    component: () => import("../views/mine/mine"),
-  },
-  {
-    path: "/ksong",
-    component: () => import("../views/ksong/ksong"),
-  },
-  {
-    path: "/cloud",
     component: () => import("../views/cloud/index.vue"),
     children: [
       {
