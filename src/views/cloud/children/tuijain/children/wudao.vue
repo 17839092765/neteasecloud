@@ -1,5 +1,5 @@
 <template>
-  <div class="tuijian">推荐</div>
+  <div class="wode">我的</div>
 </template>
 
 <script>
