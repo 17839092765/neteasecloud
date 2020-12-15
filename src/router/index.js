@@ -75,20 +75,16 @@ const routes = [
     path: "/ksong",
     component: () => import("../views/ksong/ksong"),
   },
-  // 轲轲的路由-----------------------------------------------------------------
   {
     path: "/cloud",
-    redirect: "/cloud/guanzhu",
     component: () => import("../views/cloud/index.vue"),
     children: [
       {
         path: "/cloud/guanzhu",
-
         component: () => import("../views/cloud/children/guanzhu/index.vue"),
       },
       {
         path: "/cloud/tuijian",
-
         component: () => import("../views/cloud/children/tuijain/index.vue"),
         children: [
           {
@@ -130,11 +126,6 @@ const routes = [
             path: "/cloud/tuijian/hunjian",
             component: () =>
               import("../views/cloud/children/tuijain/children/hunjian.vue"),
-          },
-          {
-            path: "/cloud/tuijian/sou",
-            component: () =>
-              import("../views/cloud/children/tuijain/children/sou.vue"),
           },
         ],
       },

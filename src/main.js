@@ -8,9 +8,9 @@ Vue.use(rem);
 
 import Vant from "vant";
 import "vant/lib/index.css";
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-Vue.use(ElementUI);
+import 'element-ui/lib/theme-chalk/index.css';
+import elementUI from "element-ui";
+Vue.use(elementUI);
 Vue.use(Vant);
 
 import { Icon } from "vant";
@@ -18,7 +18,7 @@ Vue.use(Icon);
 
 import { Toast } from 'vant';
 Vue.use(Toast);
-
+import { Lazyload } from 'vant';
 import request from "./util/request";
 Vue.prototype.$request = request;
 
