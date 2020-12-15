@@ -13,6 +13,7 @@ const routes = [{
         component: () =>
             import ("../views/find/find"),
         children: [{
+<<<<<<< HEAD
             path: "search",
             component: () =>
                 import ("../views/find/search/search"),
@@ -54,6 +55,8 @@ const routes = [{
         component: () =>
             import ("../views/find/find"),
         children: [{
+=======
+>>>>>>> dev
                 path: "search",
                 component: () =>
                     import ("../views/find/search/search"),
@@ -95,7 +98,12 @@ const routes = [{
             },
         ],
     },
+<<<<<<< HEAD
     // ----------------------^^find路由^^---------------------------------------
+=======
+
+    //---------------find路由-----------------------------------------------------------
+>>>>>>> dev
     {
         path: "/podcast",
         redirect: "/podcast/recommend",
@@ -118,12 +126,28 @@ const routes = [{
             },
         ],
     },
+<<<<<<< HEAD
     {
         path: "/mine",
         component: () =>
             import ("../views/mine/mine"),
     },
     {
+=======
+
+    //---------------mine路由-------------------------------------------------------
+    {
+        path: "/mine",
+        // redirect: "/mine",
+        component: () =>
+            import ("../views/mine/mine"),
+        children: [{
+            path: "mylist",
+            component: () =>
+                import ("../views/mine/mylist/index"),
+        }]
+    }, {
+>>>>>>> dev
         path: "/ksong",
         component: () =>
             import ("../views/ksong/ksong"),

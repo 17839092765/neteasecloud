@@ -9,7 +9,7 @@
           <span>Lv.7</span>
         </p>
       </div>
-      <van-icon name="arrow" @click="next" />
+      <van-icon name="arrow" @click="person"/>
     </div>
     <el-row class="list">
       <el-col :span="6" class="list-inner">
@@ -52,7 +52,7 @@
           alt=""
         />
       </el-col>
-      <el-col class="like-main" :span="12">
+      <el-col class="like-main" :span="12" >
         <p>我喜欢的音乐</p>
         <p>199首</p>
       </el-col>
@@ -64,10 +64,22 @@
       </el-col>
     </el-row>
     <van-tabs v-model="activeName">
-      <van-tab title="创建歌单" name="a">内容 1</van-tab>
-      <van-tab title="收藏歌单" name="b">内容 2</van-tab>
+      <van-tab title="创建歌单" name="a">
+        <ul v-for="item in musiclist" :key="item.id" class="musiclist">
+          <img :src="item.coverImgUrl" alt="" />
+          <li>{{ item.name }}</li>
+          <li>{{ item.trackCount }}首</li>
+        </ul>
+      </van-tab>
+      <van-tab title="收藏歌单" name="b">
+        <ul v-for="item in musiclist" :key="item.id">
+          <img :src="item.coverImgUrl" alt="" />
+          <li></li>
+        </ul>
+      </van-tab>
       <van-tab title="歌单助手" name="c">内容 3</van-tab>
     </van-tabs>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -77,16 +89,25 @@ export default {
   data() {
     return {
       activeName: "a",
+      musiclist: [],
     };
   },
   computed: {},
   watch: {},
   methods: {
-    next(){
+    getlist() {
+      this.$request.get("/user/playlist?uid=1319804936").then((res) => {
+        this.musiclist = res.playlist;
+        console.log(this.musiclist);
+      });
+    },
+    person(){
       this.$router.push("../mine/mylist/index.vue")
-      }
+    }
   },
-  created() {},
+  created() {
+    this.getlist();
+  },
   mounted() {},
   beforeCreate() {},
   beforeMount() {},
@@ -101,6 +122,9 @@ export default {
 
 <style lang="scss" scoped>
 .mine {
+  img {
+    width: 60px;
+  }
   margin: 0 auto;
   background-color: #f7f7f7;
   .header {
@@ -240,7 +264,7 @@ export default {
       }
     }
   }
- .van-tabs  {
+  .van-tabs {
     height: 50px;
     width: 90%;
     margin: 0 20px;
@@ -250,13 +274,15 @@ export default {
       line-height: 45px;
       color: #000;
     }
-     .van-tab__pane{
+    .van-tab__pane {
       margin: 0 auto;
       width: 100%;
       height: 100%;
       background: #fff;
     }
   }
- 
+  .musiclist{
+    width: 90%;
+  }
 }
 </style>
