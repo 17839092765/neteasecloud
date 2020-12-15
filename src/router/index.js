@@ -50,6 +50,10 @@ const routes = [
         path: "game",
         component: () => import("../views/find/game/game"),
       },
+      {
+        path: "gedanSongsList",
+        component: () => import("../views/find/children/gedanSongsList"),
+      },
     ],
   },
   // ----------------------^^find路由^^---------------------------------------
