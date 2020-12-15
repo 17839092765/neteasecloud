@@ -50,36 +50,6 @@ const routes = [
   // ----------------------^^find路由^^---------------------------------------
   {
     path: "/podcast",
-    component: () => import("../views/podcast/podcast"),
-  },
-  {
-    path: "/mine",
-    component: () => import("../views/mine/mine"),
-  },
-  {
-    path: "/ksong",
-    component: () => import("../views/ksong/ksong"),
-  },
-  {
-    path: "/cloud",
-    component: () => import("../views/cloud/cloud"),
-    children: [
-      {
-        path: "guanzhu",
-        component: () => import("../views/cloud/children/guanzhu.vue"),
-      },
-      {
-        path: "tuijian",
-        component: () => import("../views/cloud/children/tuijian.vue"),
-      },
-    ],
-  },
-  {
-    path: "/find",
-    component: () => import("../views/find/find"),
-  },
-  {
-    path: "/podcast",
     redirect: "/podcast/recommend",
     component: () => import("../views/podcast/podcast"),
     children: [
