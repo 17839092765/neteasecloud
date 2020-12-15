@@ -41,6 +41,6 @@
     width: 100%;
     bottom: 1rem;
     left: 0;
-    height: 1.5rem;
+    height: 1.4rem;
   }
 </style>
