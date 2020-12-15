@@ -54,8 +54,7 @@ const routes = [{
             },
         ],
     },
-
-    //---------------find路由-----------------------------------------------------------
+    // ----------------------^^find路由^^---------------------------------------
     {
         path: "/podcast",
         redirect: "/podcast/recommend",
@@ -78,19 +77,12 @@ const routes = [{
             },
         ],
     },
-
-    //---------------mine路由-------------------------------------------------------
     {
         path: "/mine",
-        // redirect: "/mine",
         component: () =>
             import ("../views/mine/mine"),
-        children: [{
-            path: "mylist",
-            component: () =>
-                import ("../views/mine/mylist/index"),
-        }]
-    }, {
+    },
+    {
         path: "/ksong",
         component: () =>
             import ("../views/ksong/ksong"),
