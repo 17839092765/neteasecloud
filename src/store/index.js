@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    search: "执迷不悟",
     sidebar: false,
   },
   mutations: {},

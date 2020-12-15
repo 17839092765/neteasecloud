@@ -12,6 +12,12 @@ const routes = [
   {
     path: "/find",
     component: () => import("../views/find/find"),
+    children: [
+      {
+        path: "search",
+        component: () => import("../views/find/search/search"),
+      },
+    ],
   },
   {
     path: "/podcast",
