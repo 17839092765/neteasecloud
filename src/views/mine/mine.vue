@@ -25,45 +25,45 @@
 </template>
 
 <script>
-import { Toast } from "vant";
-export default {
-  data() {
-    return {
-      currentContact: {
-        name: "张三",
-        tel: "13000000000",
+  import { Toast } from "vant";
+  export default {
+    data() {
+      return {
+        currentContact: {
+          name: "张三",
+          tel: "13000000000",
+        },
+      };
+    },
+    computed: {},
+    watch: {},
+    methods: {
+      onEdit() {
+        Toast("编辑");
       },
-    };
-  },
-  computed: {},
-  watch: {},
-  methods: {
-    onEdit() {
-      Toast("编辑");
+      get() {
+        alert(666);
+      },
     },
-    get() {
-      alert(666);
-    },
-  },
-  created() {},
-  mounted() {},
-  beforeCreate() {},
-  beforeMount() {},
-  beforeUpdate() {},
-  updated() {},
-  beforeDestroy() {},
-  destroyed() {},
-  activated() {},
-  components: {},
-};
+    created() {},
+    mounted() {},
+    beforeCreate() {},
+    beforeMount() {},
+    beforeUpdate() {},
+    updated() {},
+    beforeDestroy() {},
+    destroyed() {},
+    activated() {},
+    components: {},
+  };
 </script>
 
 <style lang="scss" scoped>
-.my-swipe .van-swipe-item {
-  color: #fff;
-  font-size: 20px;
-  line-height: 150px;
-  text-align: center;
-  background-color: #39a9ed;
-}
+  .my-swipe .van-swipe-item {
+    color: #fff;
+    font-size: 20px;
+    line-height: 150px;
+    text-align: center;
+    background-color: #39a9ed;
+  }
 </style>

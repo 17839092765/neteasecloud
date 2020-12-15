@@ -16,16 +16,19 @@ Vue.use(Vant);
 import { Icon } from "vant";
 Vue.use(Icon);
 
-import { Toast } from 'vant';
+import { Toast } from "vant";
 Vue.use(Toast);
 
 import request from "./util/request";
 Vue.prototype.$request = request;
 
-Vue.config.productionTip = false;
+import cookie from "js-cookie";
+Vue.prototype.$cookie = cookie;
 
+Vue.config.productionTip = false;
 new Vue({
-    router,
-    store,
-    render: (h) => h(App),
+  router,
+  store,
+
+  render: (h) => h(App),
 }).$mount("#app");
