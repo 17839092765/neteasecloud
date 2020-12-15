@@ -18,7 +18,7 @@ Vue.use(Icon);
 
 import { Toast } from 'vant';
 Vue.use(Toast);
-
+import { Lazyload } from 'vant';
 import request from "./util/request";
 Vue.prototype.$request = request;
 
