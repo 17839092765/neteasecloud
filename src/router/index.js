@@ -1,9 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import cookie from "js-cookie";
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/login",
+    component: () => import("../components/login/login"),
+  },
   {
     path: "/",
     redirect: "/find",
@@ -136,7 +141,23 @@ const routes = [
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
+
   routes,
 });
-
+router.beforeEach((to, from, next) => {
+  let hasLogin = cookie.get("cookie");
+  if (hasLogin) {
+    if (to.path == "/login") {
+      next("/");
+    } else {
+      next();
+    }
+  } else {
+    if (to.path == "/login") {
+      next();
+    } else {
+      next("/login");
+    }
+  }
+});
 export default router;

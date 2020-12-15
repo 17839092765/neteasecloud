@@ -16,11 +16,13 @@
     <div class="main">
       <router-view />
     </div>
+    <Musicplay v-if="$store.state.music.playYON"></Musicplay>
     <Footer v-if="$store.state.footer"></Footer>
   </div>
 </template>
 
 <script>
+  import Musicplay from "./components/musicplay";
   import Sidebar from "./components/sidebar";
   // import Header from "./components/header";
   import Footer from "./components/footer";
@@ -63,7 +65,7 @@
     beforeDestroy() {},
     destroyed() {},
     activated() {},
-    components: { Sidebar, Footer },
+    components: { Sidebar, Musicplay, Footer },
   };
 </script>
 <style lang="scss">

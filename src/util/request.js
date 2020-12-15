@@ -7,7 +7,7 @@ import axios from "axios";
 const service = axios.create({
   // baseURL: "/api", // url = base url + request url
   baseURL: "http://121.4.58.185:3000/", // url = base url + request url
-  timeout: 5000, // request timeout
+  timeout: 20000, // request timeout
 });
 
 // request interceptor
