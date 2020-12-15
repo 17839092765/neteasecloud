@@ -14,7 +14,7 @@
     </div>
     <Sidebar v-show="$store.state.sidebar"></Sidebar>
     <div class="main">
-      <router-view />
+      <keep-alive><router-view /></keep-alive>
     </div>
     <Musicplay v-if="$store.state.music.playYON"></Musicplay>
     <Footer v-if="$store.state.footer"></Footer>

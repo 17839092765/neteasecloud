@@ -13,7 +13,7 @@
 
     <div class="box">
       <div
-        @click="goToSong(item.id)"
+        @click="goToSong(item.id, item.name, item.ar[0].name, item.al.picUrl)"
         v-for="item in songs"
         :key="item.id"
         class="case"
@@ -40,6 +40,8 @@
   export default {
     data() {
       return {
+        title: "",
+        artist: "",
         songs: [],
         hot: [],
       };
@@ -54,7 +56,8 @@
       onClickRight() {
         Toast("按钮");
       },
-      goToSong(idd) {
+      goToSong(idd, title, artist, picUrl) {
+        console.log(idd, title, artist);
         this.$store.state.music.playYON = false;
         let id = idd;
         console.log(id);
@@ -64,6 +67,9 @@
           })
           .then((res) => {
             this.$store.state.music.songUrl = res.data[0].url;
+            this.$store.state.music.title = title;
+            this.$store.state.music.artist = artist;
+            this.$store.state.music.songpicUrl = picUrl;
             console.log(res.data[0].url);
             this.$store.state.music.playYON = true;
           });

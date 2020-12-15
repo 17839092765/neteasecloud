@@ -117,7 +117,9 @@
           .then((res) => {
             console.log(res);
             this.$router.push("/");
+
             this.$cookie.set("cookie", res.cookie);
+            this.$cookie.set("uid", res.account.id);
             setTimeout(() => {
               console.log(123123123123123123);
             }, 2000);
