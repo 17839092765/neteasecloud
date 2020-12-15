@@ -1,7 +1,7 @@
 <!-- 组件说明 -->
 <template>
-    <div class=''>
-        我的账号
+    <div class='index'>
+        我的账号1
     </div>
 </template>
 
