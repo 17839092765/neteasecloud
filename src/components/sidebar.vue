@@ -49,7 +49,7 @@
     top: 0;
     left: 0;
     background: #000;
-    z-index: 20;
+    z-index: 100;
     .van-sidebar {
       width: 100%;
       height: 100%;

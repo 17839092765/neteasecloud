@@ -5,7 +5,8 @@ import store from "./store";
 import rem from "./util/rem";
 import Vant from "vant";
 import "vant/lib/index.css";
-
+import elementUi from "element-ui";
+Vue.use(elementUi);
 Vue.use(Vant);
 Vue.use(rem);
 import { Icon } from "vant";
@@ -17,7 +18,7 @@ Vue.prototype.$request = request;
 Vue.config.productionTip = false;
 
 new Vue({
-    router,
-    store,
-    render: (h) => h(App),
+  router,
+  store,
+  render: (h) => h(App),
 }).$mount("#app");
