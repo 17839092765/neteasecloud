@@ -27,8 +27,27 @@ Vue.prototype.$cookie = cookie;
 
 Vue.config.productionTip = false;
 new Vue({
-  router,
-  store,
+    router,
+    store,
 
-  render: (h) => h(App),
+    render: (h) => h(App),
 }).$mount("#app");
+
+router.beforeEach((to, from, next) => {
+    let hasLogin = cookie.get("cookie") || '';
+    if (hasLogin) {
+        if (to.path == "/login") {
+            next("/");
+        } else {
+            next();
+        }
+    } else {
+        if (to.path == "/login") {
+            next();
+        } else {
+            if (from.path != '/login') {
+                next("/login");
+            }
+        }
+    }
+});
