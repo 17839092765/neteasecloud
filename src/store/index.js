@@ -7,6 +7,8 @@ export default new Vuex.Store({
   state: {
     search: "执迷不悟",
     sidebar: false,
+    footer: true,
+    sidebarBtn: true,
   },
   mutations: {},
   actions: {},

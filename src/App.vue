@@ -6,7 +6,7 @@
     />
 
     <div
-      v-if="!$store.state.sidebar"
+      v-if="$store.state.sidebarBtn"
       @click="$store.state.sidebar = true"
       class="daohang"
     >
@@ -16,7 +16,7 @@
     <div class="main">
       <router-view />
     </div>
-    <Footer></Footer>
+    <Footer v-if="$store.state.footer"></Footer>
   </div>
 </template>
 
@@ -30,7 +30,29 @@
       return { show: false };
     },
     computed: {},
-    watch: {},
+    watch: {
+      "$route.path": function(newVal, oldVal) {
+        console.log(newVal + "---" + oldVal);
+        if (
+          newVal === "/find/dayday" ||
+          "/find/sirenfm" ||
+          "/find/songlist" ||
+          "/find/ranking" ||
+          "/find/figure" ||
+          "/find/choir" ||
+          "/find/game"
+        ) {
+          console.log("asdasdasdasd");
+          // this.showaction = true;
+          this.$store.state.sidebarBtn = false;
+        } else {
+          this.$store.state.sidebarBtn = true;
+        }
+        if (newVal === "/find") {
+          this.$store.state.sidebarBtn = true;
+        }
+      },
+    },
     methods: {},
     created() {},
     mounted() {},
