@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .podcast {
-  // margin: 0 50px;
+  margin: 0 10px;
 }
 .search {
   position: fixed;
