@@ -21,7 +21,7 @@
         <img class="pic" :src="item.pic" alt="" />
       </van-swipe-item>
     </van-swipe>
-    111111111
+    <video src=""></video>
     <router-view></router-view>
     <!-- <Search v-show="onSearch1"></Search> -->
   </div>
