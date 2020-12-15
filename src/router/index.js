@@ -8,44 +8,47 @@ const routes = [{
         redirect: "/find",
     },
 
-<<<<<<< HEAD
-  {
-    path: "/find",
-    component: () => import("../views/find/find"),
-    children: [
-      {
-        path: "search",
-        component: () => import("../views/find/search/search"),
-      },
-    ],
-  },
-  {
-    path: "/podcast",
-    component: () => import("../views/podcast/podcast"),
-  },
-  {
-    path: "/mine",
-    component: () => import("../views/mine/mine"),
-  },
-  {
-    path: "/ksong",
-    component: () => import("../views/ksong/ksong"),
-  },
-  {
-    path: "/cloud",
-    component: () => import("../views/cloud/cloud"),
-    children: [
-      {
-        path: "guanzhu",
-        component: () => import("../views/cloud/children/guanzhu.vue"),
-      },
-      {
-        path: "tuijian",
-        component: () => import("../views/cloud/children/tuijian.vue"),
-      },
-    ],
-  },
-=======
+    {
+        path: "/find",
+        component: () =>
+            import ("../views/find/find"),
+        children: [{
+            path: "search",
+            component: () =>
+                import ("../views/find/search/search"),
+        }, ],
+    },
+    {
+        path: "/podcast",
+        component: () =>
+            import ("../views/podcast/podcast"),
+    },
+    {
+        path: "/mine",
+        component: () =>
+            import ("../views/mine/mine"),
+    },
+    {
+        path: "/ksong",
+        component: () =>
+            import ("../views/ksong/ksong"),
+    },
+    {
+        path: "/cloud",
+        component: () =>
+            import ("../views/cloud/cloud"),
+        children: [{
+                path: "guanzhu",
+                component: () =>
+                    import ("../views/cloud/children/guanzhu.vue"),
+            },
+            {
+                path: "tuijian",
+                component: () =>
+                    import ("../views/cloud/children/tuijian.vue"),
+            },
+        ],
+    },
     {
         path: "/find",
         component: () =>
@@ -99,7 +102,6 @@ const routes = [{
             },
         ],
     },
->>>>>>> 51a912613c5a2519fa2eec480a586e9c05770ed0
 ];
 
 const router = new VueRouter({
