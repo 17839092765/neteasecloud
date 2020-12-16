@@ -5,7 +5,7 @@
       <van-tabbar-item icon="circle" to="/podcast">博客</van-tabbar-item>
       <van-tabbar-item icon="music-o" to="/mine">我的</van-tabbar-item>
       <van-tabbar-item icon="search" to="/ksong">K歌</van-tabbar-item>
-      <van-tabbar-item icon="friends-o" to="cloud">云村</van-tabbar-item>
+      <van-tabbar-item icon="friends-o" to="/cloud">云村</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>

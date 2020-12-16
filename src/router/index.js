@@ -83,6 +83,7 @@ const routes = [
   // 轲轲轲轲的路由---------------------------------------------------------------
   {
     path: "/cloud",
+    redirect: "/cloud/guanzhu",
     component: () => import("../views/cloud/index.vue"),
     children: [
       {
@@ -91,10 +92,12 @@ const routes = [
       },
       {
         path: "/cloud/tuijian",
+        redirect: "/cloud/tuijian/shipin",
         component: () => import("../views/cloud/children/tuijain/index.vue"),
         children: [
           {
             path: "/cloud/tuijian/shipin",
+
             component: () =>
               import("../views/cloud/children/tuijain/children/shipin.vue"),
           },

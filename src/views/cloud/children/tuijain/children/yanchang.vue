@@ -1,7 +1,7 @@
 <template>
   <div class="shipin">
     <!-- 搜索框 -->
-    <van-search v-model="value" placeholder="请输入搜索关键词" />
+    <van-search v-model="value" placeholder="请输入搜索关键词" @click="sou()" />
 
     <!-- 轮播图 -->
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
@@ -94,6 +94,10 @@ export default {
 
         // console.log(this.Lists);
       });
+    },
+
+    sou() {
+      this.$router.push("/cloud/tuijian/sou");
     },
   },
   created() {
