@@ -3,10 +3,10 @@
     <div class="header">
       <div class="photo">
         <img :src="usermsg.userimg" alt="" />
-        <p>{{usermsg.name}}</p>
+        <p>{{ usermsg.name }}</p>
         <p>
           <span>开通VIP</span>
-          <span>Lv.{{usermsg.level}}</span>
+          <span>Lv.{{ usermsg.level }}</span>
         </p>
       </div>
       <van-icon name="arrow" @click="person" />
@@ -84,221 +84,225 @@
 </template>
 
 <script>
-import { Toast } from "vant";
-export default {
-  data() {
-    return {
-      activeName: "a",
-      musiclist: [],
-      usermsg:{
-        name:'',
-        userimg:'',
-        level:''
-      }
-    };
-  },
-  computed: {},
-  watch: {},
-  methods: {
-    getlist() {
-      this.$request.get("/user/playlist?uid=1319804936").then((res) => {
-        this.musiclist = res.playlist;
-        console.log(res);
-      });
+  import { Toast } from "vant";
+  export default {
+    data() {
+      return {
+        uid: "",
+        activeName: "a",
+        musiclist: [],
+        usermsg: {
+          name: "",
+          userimg: "",
+          level: "",
+        },
+      };
     },
-    getuser() {
-      this.$request.post(`user/detail?uid=1319804936`).then((res) => {
-        console.log(res);
-        // this.usermsg=res
-        this.usermsg.name=res.profile.nickname;
-        this.usermsg.userimg=res.profile.avatarUrl;
-        this.usermsg.level=res.level;
-      });
+    computed: {},
+    watch: {},
+    methods: {
+      getlist() {
+        this.$request.get(`/user/playlist?uid=${this.uid}`).then((res) => {
+          this.musiclist = res.playlist;
+          console.log(res);
+        });
+      },
+      getuser() {
+        this.$request.post(`user/detail?uid=${this.uid}`).then((res) => {
+          console.log(res);
+          // this.usermsg=res
+          this.usermsg.name = res.profile.nickname;
+          this.usermsg.userimg = res.profile.avatarUrl;
+          this.usermsg.level = res.level;
+        });
+      },
+      person() {
+        console.log(111);
+        this.$router.push("/mine/mylist");
+      },
     },
-    person() {
-      console.log(111);
-      this.$router.push("/mine/mylist");
+    created() {
+      let uid = this.$cookie.get("uid");
+      this.uid = uid;
+      console.log(uid);
+      this.getlist();
+      this.getuser();
     },
-  },
-  created() {
-    this.getlist();
-    this.getuser();
-  },
-  mounted() {},
-  beforeCreate() {},
-  beforeMount() {},
-  beforeUpdate() {},
-  updated() {},
-  beforeDestroy() {},
-  destroyed() {},
-  activated() {},
-  components: {},
-};
+    mounted() {},
+    beforeCreate() {},
+    beforeMount() {},
+    beforeUpdate() {},
+    updated() {},
+    beforeDestroy() {},
+    destroyed() {},
+    activated() {},
+    components: {},
+  };
 </script>
 
 <style lang="scss" scoped>
-.mine {
-  img {
-    width: 60px;
-  }
-  margin: 0 auto;
-  background-color: #f7f7f7;
-  .header {
-    height: 100px;
-    position: relative;
-    .photo {
-      margin-left: 30px;
-      margin-top: 50px;
-      img {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        display: block;
-        float: left;
-      }
-      p {
-        font-size: 14px;
-        font-weight: 600;
-        float: left;
-        margin-top: 20px;
-        margin-left: 10px;
-      }
-      span:nth-child(1) {
-        text-align: center;
-        float: left;
-        display: block;
-        font-size: 14px;
-        width: 60px;
-        padding: 0 5px;
-        height: 22px;
-        line-height: 22px;
-        background: #000;
-        color: #fff;
-        border-radius: 10px;
-        position: absolute;
-        left: 110px;
-        bottom: 35px;
-      }
-      span:nth-child(2) {
-        text-align: center;
-        width: 40px;
-        height: 20px;
-        border-radius: 10px;
-        background-color: #fff;
-        position: absolute;
-        left: 180px;
-        bottom: 35px;
-        padding: 0 5px;
-        line-height: 20px;
-      }
-    }
-  }
-  .van-icon {
-    font-size: 20px;
-    position: absolute;
-    top: 30px;
-    right: 30px;
-  }
-
-  .list {
-    height: 160px;
-    width: 90%;
-    background-color: #ffffff;
-    margin: 0 auto;
-    border-radius: 10px;
-    .list-inner {
-      height: 80px;
-      text-align: center;
-      #tubiao {
-        font-size: 36px;
-        margin-top: 10px;
-        color: red;
-      }
-      #tubiao8 {
-        font-size: 36px;
-        margin-top: 10px;
-        color: #a8a8a8;
-      }
-      p {
-        height: 20px;
-        line-height: 20px;
-        margin-top: 5px;
-        color: #5a5a5a;
-      }
-    }
-  }
-  .like {
-    height: 80px;
-    width: 90%;
-    margin: 10px auto;
-    background-color: #fff;
-    padding: 10px 10px;
-    position: relative;
-    border-radius: 10px;
-    .like-left {
-      height: 100%;
+  .mine {
+    img {
       width: 60px;
-      background-color: #000;
-      opacity: 0.9;
-      img {
+    }
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    .header {
+      height: 100px;
+      position: relative;
+      .photo {
+        margin-left: 30px;
+        margin-top: 50px;
+        img {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          display: block;
+          float: left;
+        }
+        p {
+          font-size: 14px;
+          font-weight: 600;
+          float: left;
+          margin-top: 20px;
+          margin-left: 10px;
+        }
+        span:nth-child(1) {
+          text-align: center;
+          float: left;
+          display: block;
+          font-size: 14px;
+          width: 60px;
+          padding: 0 5px;
+          height: 22px;
+          line-height: 22px;
+          background: #000;
+          color: #fff;
+          border-radius: 10px;
+          position: absolute;
+          left: 110px;
+          bottom: 35px;
+        }
+        span:nth-child(2) {
+          text-align: center;
+          width: 40px;
+          height: 20px;
+          border-radius: 10px;
+          background-color: #fff;
+          position: absolute;
+          left: 180px;
+          bottom: 35px;
+          padding: 0 5px;
+          line-height: 20px;
+        }
+      }
+    }
+    .van-icon {
+      font-size: 20px;
+      position: absolute;
+      top: 30px;
+      right: 30px;
+    }
+
+    .list {
+      height: 160px;
+      width: 90%;
+      background-color: #ffffff;
+      margin: 0 auto;
+      border-radius: 10px;
+      .list-inner {
+        height: 80px;
+        text-align: center;
+        #tubiao {
+          font-size: 36px;
+          margin-top: 10px;
+          color: red;
+        }
+        #tubiao8 {
+          font-size: 36px;
+          margin-top: 10px;
+          color: #a8a8a8;
+        }
+        p {
+          height: 20px;
+          line-height: 20px;
+          margin-top: 5px;
+          color: #5a5a5a;
+        }
+      }
+    }
+    .like {
+      height: 80px;
+      width: 90%;
+      margin: 10px auto;
+      background-color: #fff;
+      padding: 10px 10px;
+      position: relative;
+      border-radius: 10px;
+      .like-left {
+        height: 100%;
+        width: 60px;
+        background-color: #000;
+        opacity: 0.9;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+      .like-main {
+        float: left;
+        p:nth-child(1) {
+          margin-left: 15px;
+          margin-top: 5px;
+          font-size: 16px;
+        }
+        p:nth-child(2) {
+          margin-left: 15px;
+          margin-top: 2px;
+          color: #8d8d8d;
+          font-size: 12px;
+        }
+      }
+      .like-right {
+        p {
+          width: 60px;
+          height: 13px;
+          border-radius: 14px;
+          padding: 5px 7px;
+          line-height: 13px;
+          border: 1px solid #8d8d8d;
+          position: absolute;
+          top: 27px;
+          right: 20px;
+          i {
+            height: 100%;
+          }
+          span {
+            height: 100%;
+          }
+        }
+      }
+    }
+    .van-tabs {
+      height: 50px;
+      width: 90%;
+      margin: 0 20px;
+      p {
+        font-size: 16px;
+        text-align: center;
+        line-height: 45px;
+        color: #000;
+      }
+      .van-tab__pane {
+        margin: 0 auto;
         width: 100%;
         height: 100%;
-        border-radius: 10px;
+        background: #fff;
       }
     }
-    .like-main {
-      float: left;
-      p:nth-child(1) {
-        margin-left: 15px;
-        margin-top: 5px;
-        font-size: 16px;
-      }
-      p:nth-child(2) {
-        margin-left: 15px;
-        margin-top: 2px;
-        color: #8d8d8d;
-        font-size: 12px;
-      }
-    }
-    .like-right {
-      p {
-        width: 60px;
-        height: 13px;
-        border-radius: 14px;
-        padding: 5px 7px;
-        line-height: 13px;
-        border: 1px solid #8d8d8d;
-        position: absolute;
-        top: 27px;
-        right: 20px;
-        i {
-          height: 100%;
-        }
-        span {
-          height: 100%;
-        }
-      }
+    .musiclist {
+      width: 90%;
     }
   }
-  .van-tabs {
-    height: 50px;
-    width: 90%;
-    margin: 0 20px;
-    p {
-      font-size: 16px;
-      text-align: center;
-      line-height: 45px;
-      color: #000;
-    }
-    .van-tab__pane {
-      margin: 0 auto;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-    }
-  }
-  .musiclist {
-    width: 90%;
-  }
-}
 </style>

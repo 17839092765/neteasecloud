@@ -108,7 +108,7 @@
     width: 100%;
     top: 0rem;
     left: 0;
-    bottom: 0;
+    bottom: 2rem;
     overflow: scroll;
     background: rgb(255, 255, 255);
     .header {
