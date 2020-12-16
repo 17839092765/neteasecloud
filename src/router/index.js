@@ -86,52 +86,58 @@ const routes = [
     component: () => import("../views/cloud/index.vue"),
     children: [
       {
-        path: "/cloud/guanzhu",
+        path: "guanzhu",
         component: () => import("../views/cloud/children/guanzhu/index.vue"),
       },
       {
-        path: "/cloud/tuijian",
+        path: "tuijian",
         redirect: "/cloud/tuijian/shipin",
         component: () => import("../views/cloud/children/tuijain/index.vue"),
         children: [
           {
-            path: "/cloud/tuijian/shipin",
+            path: "shipin",
 
             component: () =>
               import("../views/cloud/children/tuijain/children/shipin.vue"),
           },
           {
-            path: "/cloud/tuijian/yanchang",
+            path: "sou",
+
+            component: () =>
+              import("../views/cloud/children/tuijain/children/sou.vue"),
+          },
+          {
+            path: "yanchang",
             component: () =>
               import("../views/cloud/children/tuijain/children/yanchang.vue"),
           },
           {
-            path: "/cloud/tuijian/anli",
+            path: "anli",
             component: () =>
               import("../views/cloud/children/tuijain/children/anli.vue"),
           },
           {
-            path: "/cloud/tuijian/yanzou",
+            path: "yanzou",
             component: () =>
               import("../views/cloud/children/tuijain/children/yanzou.vue"),
           },
           {
-            path: "/cloud/tuijian/mv",
+            path: "mv",
             component: () =>
               import("../views/cloud/children/tuijain/children/mv.vue"),
           },
           {
-            path: "/cloud/tuijian/shenghuo",
+            path: "shenghuo",
             component: () =>
               import("../views/cloud/children/tuijain/children/shenghuo.vue"),
           },
           {
-            path: "/cloud/tuijian/wudao",
+            path: "wudao",
             component: () =>
               import("../views/cloud/children/tuijain/children/wudao.vue"),
           },
           {
-            path: "/cloud/tuijian/hunjian",
+            path: "hunjian",
             component: () =>
               import("../views/cloud/children/tuijain/children/hunjian.vue"),
           },

@@ -1,7 +1,8 @@
 <template>
   <div class="sou">
+    1111111111111
     <!-- 头部搜索 -->
-    <div class="tou">
+    <!-- <div class="tou">
       <van-icon name="arrow-left" class="biao" @click="fan()" />
       <van-search
         v-model="value"
@@ -16,9 +17,9 @@
           {{ item.keyword }}
         </li>
       </ul>
-    </div>
+    </div> -->
     <!-- 热搜榜 -->
-    <div class="re">
+    <!-- <div class="re">
       <h6>热搜榜</h6>
       <ul class="alist">
         <li v-for="(item, index) in First" :key="index">
@@ -26,8 +27,8 @@
           <span class="sp2">{{ item }}</span>
         </li>
       </ul>
-    </div>
-    <div class="kuai">
+    </div> -->
+    <!-- <div class="kuai">
       <span>歌手分类</span>
       <span>听歌有奖</span>
       <span>电音专区</span>
@@ -38,7 +39,7 @@
       <span>声之剧场</span>
       <span>浪姐团综</span>
       <span>火前留名</span>
-    </div>
+    </div> -->
   </div>
 </template>
 
