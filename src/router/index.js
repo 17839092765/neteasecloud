@@ -5,15 +5,9 @@ import cookie from "js-cookie";
 Vue.use(VueRouter);
 
 const routes = [{
-        path: "/login",
-        component: () =>
-            import ("../components/login/login"),
-    },
-    {
         path: "/",
         redirect: "/find",
     },
-
     {
         path: "/find",
         component: () =>
@@ -61,6 +55,24 @@ const routes = [{
         ],
     },
     // ----------------------^^find路由^^---------------------------------------
+
+
+    {
+        path: "/podcast",
+        component: () =>
+            import ("../views/podcast/podcast"),
+    },
+    {
+        path: "/mine",
+        component: () =>
+            import ("../views/mine/mine"),
+    },
+    {
+        path: "/ksong",
+        component: () =>
+            import ("../views/ksong/ksong"),
+    },
+
     {
         path: "/podcast",
         redirect: "/podcast/recommend",

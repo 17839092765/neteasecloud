@@ -21,13 +21,10 @@
 <div v-if="shows">
   <h2>K歌</h2>
  <span class="tutu"><van-icon name="search" size="0.6rem" @click="onbtn" /></span> 
- <van-grid :border="false" :column-num="2">
-  <van-grid-item>
-    <van-image src="https://img.yzcdn.cn/vant/apple-1.jpg" />
-  </van-grid-item>
-  <van-grid-item>
-    <van-image src="https://img.yzcdn.cn/vant/apple-2.jpg" />
-  </van-grid-item>
+ <van-grid :border="true" :column-num="2">
+  
+ <van-grid-item icon="audio" text="点歌台" />
+  <van-grid-item icon="music" text="我的K歌" />
   
 </van-grid>
 <van-swipe :autoplay="3000">
@@ -35,6 +32,10 @@
     <img :src="image" />
   </van-swipe-item>
 </van-swipe>
+<van-cell-group>
+  
+  <van-cell title="热门活动" value="赢房猫签名照" label="歌名造句挑战" is-link />
+</van-cell-group>
 </div>
     
   </div>
@@ -180,5 +181,12 @@ h2{
   img{margin-left:10%;
     width: 80%;
   }
+}
+.grid-item1{margin-right: 0;
+  width: 50%;height: 100%;
+  
+}
+.tubiaoimg{position: relative;left: 0;
+  width: 1rem;
 }
 </style>
