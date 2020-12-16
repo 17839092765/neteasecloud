@@ -13,7 +13,8 @@ const routes = [{
         path: "/",
         redirect: "/find",
     },
-
+    { path: "/audio", component: () =>
+            import ("../views/audio/index.vue") },
     {
         path: "/find",
         component: () =>
