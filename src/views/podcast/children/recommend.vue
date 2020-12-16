@@ -1,5 +1,6 @@
 <template>
   <div class="recommend">
+    <!-- 我的播客 -->
     <div class="boke">
       <span>
         <van-icon
@@ -9,6 +10,7 @@
         />我的播客</span
       ><van-icon name="arrow" size="18px" />
     </div>
+    <!-- 精选播单 -->
     <div class="bodan">
       <div class="bodan-top">
         <p>精选播单</p>
@@ -59,6 +61,7 @@
         </figure>
       </div>
     </div>
+    <!-- 音乐故事 -->
     <div class="bodan">
       <div class="bodan-top">
         <p>音乐故事|这有一个故事陪你听歌</p>
@@ -88,9 +91,16 @@
         </figure>
       </div>
     </div>
+    <!-- 轮播图 -->
+    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+      <van-swipe-item>1</van-swipe-item>
+      <van-swipe-item>2</van-swipe-item>
+      <van-swipe-item>3</van-swipe-item>
+    </van-swipe>
+    <!-- 声之剧场 -->
     <div class="bodan">
       <div class="bodan-top">
-        <p>音乐故事|这有一个故事陪你听歌</p>
+        <p>声之剧场</p>
         <van-tag plain type="primary">更多></van-tag>
       </div>
       <div class="bodan-bottom">
@@ -143,7 +153,14 @@ export default {
 
 <style lang="scss" scoped>
 .recommend {
-  padding-bottom: 50px;
+  padding: 0.2rem;
+  position: fixed;
+  top: 1rem;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  overflow: scroll;
+  box-sizing: border-box;
   .boke {
     padding: 0.2rem;
     border: 1px solid red;
@@ -192,6 +209,15 @@ export default {
     img {
       width: 100px;
     }
+  }
+  .my-swipe .van-swipe-item {
+    color: #fff;
+    font-size: 20px;
+    line-height: 150px;
+    text-align: center;
+    background-color: #39a9ed;
+    border-radius: 20px;
+    margin: 10px 0;
   }
 }
 </style>

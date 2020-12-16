@@ -22,7 +22,9 @@ export default {
   computed: {},
   watch: {},
   methods: {},
-  created() {},
+  created() {
+    this.$store.state.sidebarBtn = true;
+  },
   mounted() {},
   beforeCreate() {},
   beforeMount() {},
@@ -36,14 +38,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.van-tabs1 {
-  width: 80%;
-  // display: flex;
-  flex-direction: row;
-}
-.search {
-  // position: fixed;
-  // top: 0.2rem;
-  // right: 0.2rem;
+.van-sticky {
+  display: flex;
+  position: relative;
+  .van-tabs1 {
+    width: 80%;
+    margin: 0 auto;
+    // display: flex;
+    flex-direction: row;
+  }
+  .search {
+    position: absolute;
+    top: 0.22rem;
+    right: 0.3rem;
+  }
 }
 </style>
