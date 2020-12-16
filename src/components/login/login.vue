@@ -68,6 +68,7 @@
 </template>
 
 <script>
+import cookie from 'js-cookie'
   export default {
     data() {
       return {
@@ -116,15 +117,19 @@
           )
           .then((res) => {
             console.log(res);
-            this.$router.push("/");
             this.$cookie.set("cookie", res.cookie);
-            setTimeout(() => {
-              console.log(123123123123123123);
-            }, 2000);
+            this.$router.push("/");
+            // setTimeout(() => {
+            //   console.log(123123123123123123);
+            // }, 2000);
           });
       },
     },
-    created() {},
+    created() {
+      if(cookie.get('cookie')){
+        this.$router.push('/find')
+      }
+    },
     mounted() {},
     beforeCreate() {},
     beforeMount() {},
