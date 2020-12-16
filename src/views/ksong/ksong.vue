@@ -1,5 +1,8 @@
 <template>
   <div class="ksong">
+    <video class="mp4show" autoplay="autoplay"  width="320" height="240" controls v-if="mp4show" :src="veideosurl">
+     
+    </video>
     <form action="/">
   <van-search
   v-if="showss"
@@ -85,7 +88,9 @@ import { Toast } from 'vant';
         'https://img.yzcdn.cn/vant/apple-1.jpg',
         'https://img.yzcdn.cn/vant/apple-2.jpg',
       ],
-      veideos:[]
+      veideos:[],
+      veideosurl:"",
+      mp4show:false,
         };
     },
     computed: {},
@@ -95,6 +100,7 @@ import { Toast } from 'vant';
         Toast('此模块正在开发中,敬请期待！')
       },
       onSearch(val) {
+        this.mp4show=false,
         this.yinyue=false
         this.ulshow=true;
         
@@ -106,7 +112,8 @@ import { Toast } from 'vant';
          
      
     },
-    onCancel() {    
+    onCancel() {
+      this.mp4show=false,    
       this.shows=true,
       this.showss=false,
       this.ulshow=false
@@ -114,11 +121,13 @@ import { Toast } from 'vant';
       console.log(this.ulshow)
     },
     onbtn(){
+      this.mp4show=false,
       this.yinyue=false
       this.showss=true,
       this.shows=false
     },
     oninput(value){
+      this.mp4show=false,
       this.yinyue=false  
       this.arreylists=[] 
        this.ulshow=true
@@ -155,6 +164,7 @@ onclick(item){
       })
     },
     mytj(){
+      this.mp4show=false,
       this.veideos=[]
       this.$cookie.get('cookie')
       this.$request.post("/video/timeline/recommend",{cookie:this.$cookie.get('cookie')}).then(res=>{
@@ -164,10 +174,13 @@ onclick(item){
       })
     },
     messgg(item){
-      // this.$request.post("/video/detail/info",{cookie:this.$cookie.get('cookie'),vid:item.data.vid}).then(res=>{
-      //   console.log(res)
-      // })
-      // this.$store.state()
+
+      this.$request.post("/video/url",{cookie:this.$cookie.get('cookie'),id:item.data.vid}).then(res=>{
+        this.mp4show=true
+        console.log(res.urls[0].url)
+       this.veideosurl = res.urls[0].url
+      })
+     
     }
     },
     created() {},
@@ -281,5 +294,11 @@ h2{
       height: 2rem;
     }
   }
-
+.mp4show{
+  
+ position:fixed;
+ top: 10%;
+ left: 6%;
+ z-index: 400;
+}
 </style>
