@@ -3,12 +3,24 @@
     <!-- 头部搜索 -->
     <div class="tou">
       <van-icon name="arrow-left" class="biao" @click="fan()" />
-      <van-search v-model="value" placeholder="请输入搜索关键词" class="kuang" />
+      <van-search
+        v-model="value"
+        :placeholder="showKeyword"
+        class="kuang"
+        @input="search"
+      />
+      <ul class="list">
+        <li v-for="(item, index) in searchList" :key="index">
+          <van-icon name="search" class="icon" />
+          &nbsp;&nbsp;
+          {{ item.keyword }}
+        </li>
+      </ul>
     </div>
     <!-- 热搜榜 -->
     <div class="re">
       <h6>热搜榜</h6>
-      <ul>
+      <ul class="alist">
         <li v-for="(item, index) in First" :key="index">
           <span class="sp1">{{ index + 1 }}&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <span class="sp2">{{ item }}</span>
@@ -33,27 +45,58 @@
 <script>
 export default {
   data() {
-    return { value: "", First: [] };
+    return {
+      value: "",
+      First: [],
+      timer: "",
+      showKeyword: "",
+      count: 0,
+      searchList: [],
+    };
   },
   computed: {},
   watch: {},
   methods: {
+    search() {
+      if (this.value == "") {
+        this.searchList = [];
+      } else {
+        this.$request
+          .get(`/search/suggest?keywords=${this.value}&type=mobile`)
+          .then((res) => {
+            if (res.code == 200) {
+              this.searchList = res.result.allMatch;
+              console.log(this.searchList);
+            }
+          });
+      }
+    },
     fan() {
       this.$router.push("/cloud/tuijian/shipin");
     },
-    githot() {
+    gethot() {
+      let that = this;
       this.$request.get("/search/hot").then((res) => {
         let stars = res.result.hots;
-        console.log(stars);
+        //console.log(stars);
         for (let i = 0; i < stars.length; i++) {
           this.First.push(stars[i].first);
         }
-        console.log(this.First);
+        // console.log(this.First);
+        // console.log(this.First[this.count]);
+        this.showKeyword = this.First[this.count];
+        setInterval(function () {
+          that.showKeyword = that.First[that.count];
+          that.count++;
+          if (that.count > that.First.length - 1) {
+            that.count = 0;
+          }
+        }, 10000);
       });
     },
   },
   created() {
-    this.githot();
+    this.gethot();
   },
   mounted() {},
   beforeCreate() {},
@@ -99,7 +142,29 @@ h6 {
   line-height: 0.7rem;
   border-bottom: 1px solid #f1f1f1;
 }
-ul {
+.list {
+  width: 90%;
+  background: #fff;
+  position: absolute;
+  top: 1rem;
+  left: 0.3rem;
+  box-shadow: 1px 1px 1px 1px #bbb7b7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  li {
+    width: 100%;
+    height: 0.8rem;
+    border-bottom: 1px solid #d4cfcf;
+    line-height: 1rem;
+    color: #696767;
+    .icon {
+      margin-left: 0.2rem;
+      margin-right: 0.2rem;
+    }
+  }
+}
+.alist {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

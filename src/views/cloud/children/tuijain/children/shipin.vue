@@ -17,13 +17,9 @@
             <!-- 简介 -->
             <h6>{{ item.content }}</h6>
             <!-- 播放量 -->
-            <p class="bofang">
-              <van-icon name="play-circle-o" />{{ item.likedCount }}
-            </p>
+            <p class="bofang"><van-icon name="play-circle-o" />{{ item.likedCount }}</p>
             <!-- 点赞量 -->
-            <p class="zan">
-              <van-icon name="thumb-circle-o" />{{ item.replyCount }}
-            </p>
+            <p class="zan"><van-icon name="thumb-circle-o" />{{ item.replyCount }}</p>
             <!-- 姓名 -->
             <span class="feng">{{ item.nickname }}</span>
           </nav>
