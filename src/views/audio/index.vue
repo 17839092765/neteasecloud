@@ -6,8 +6,8 @@
         <div class="audioD1-1">
           <i class="el-icon-back"></i>
           <div class="audioD1-geming">
-            <span></span>
-            <br />
+            <span>{{ 一念之间 }}</span
+            ><br />
             <time><a href="#">张杰></a></time>
           </div>
         </div>
