@@ -10,120 +10,52 @@
         />我的播客</span
       ><van-icon name="arrow" size="18px" />
     </div>
-    <!-- 精选播单 -->
+    <!-- 精选MV -->
     <div class="bodan">
       <div class="bodan-top">
-        <p>精选播单</p>
+        <p>精选MV</p>
         <van-tag plain type="primary">更多></van-tag>
       </div>
       <div class="bodan-bottom">
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
+        <figure v-for="item in allmv" :key="item.artistId">
+          <img :src="item.cover" alt="" />
+          <figcaption>{{ item.name }}</figcaption>
         </figure>
       </div>
     </div>
-    <!-- 音乐故事 -->
+    <!-- 最新MV -->
     <div class="bodan">
       <div class="bodan-top">
-        <p>音乐故事|这有一个故事陪你听歌</p>
+        <p>最新MV|这有一个人陪你听歌</p>
         <van-tag plain type="primary">更多></van-tag>
       </div>
       <div class="bodan-bottom">
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
+        <figure v-for="item in allmv1" :key="item.artistId">
+          <img :src="item.cover" alt="" />
+          <figcaption>{{ item.name }}</figcaption>
         </figure>
       </div>
     </div>
     <!-- 轮播图 -->
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item>1</van-swipe-item>
-      <van-swipe-item>2</van-swipe-item>
-      <van-swipe-item>3</van-swipe-item>
+    <van-swipe class="my-swipe" :autoplay="1000" indicator-color="white">
+      <van-swipe-item v-for="item in allmv3" :key="item.id">
+        <img :src="item.picUrl" class="picurl" />
+      </van-swipe-item>
     </van-swipe>
-    <!-- 声之剧场 -->
+    <!-- 网易出品MV -->
     <div class="bodan">
       <div class="bodan-top">
-        <p>声之剧场</p>
+        <p>网易出品MV</p>
         <van-tag plain type="primary">更多></van-tag>
       </div>
       <div class="bodan-bottom">
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
-        </figure>
-        <figure>
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608028894775&di=62ecf81776ddcdf0fef9aed3bf7c7b91&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F07%2F10%2F3e4575f9df9afb8c4d49883b2f5cfce6.jpg"
-            alt=""
-          />
-          <figcaption>你一定会爱上的惊艳男生翻唱</figcaption>
+        <figure
+          v-for="item in allmv2"
+          :key="item.artistId"
+          @click="postid(item.id)"
+        >
+          <img :src="item.cover" alt="" />
+          <figcaption>{{ item.name }}</figcaption>
         </figure>
       </div>
     </div>
@@ -131,14 +63,77 @@
 </template>
 
 <script>
+import Figure from "../../find/figure/figure.vue";
 export default {
   data() {
-    return {};
+    return {
+      allmv: {},
+      allmv1: {},
+      allmv2: {},
+      allmv3: {},
+    };
   },
   computed: {},
   watch: {},
-  methods: {},
-  created() {},
+  methods: {
+    getmv() {
+      this.$request
+        .post("/mv/all", {
+          area: "内地",
+          limit: 6,
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.allmv = res.data;
+        });
+    },
+    getmv1() {
+      this.$request
+        .post("/mv/first", {
+          area: "内地",
+          limit: 6,
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.allmv1 = res.data;
+        });
+    },
+    getmv2() {
+      this.$request
+        .post("/mv/exclusive/rcmd", {
+          limit: 6,
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.allmv2 = res.data;
+        });
+    },
+    getmv3() {
+      this.$request.get("/personalized/mv").then((res) => {
+        console.log(res.result.picUrl);
+
+        this.allmv3 = res.result;
+      });
+    },
+    postid(id1) {
+      console.log(111);
+      // console.log(id);
+      let id = id1;
+      this.$request.get("/mv/url?id=" + id).then((res) => {
+        console.log(res);
+        if (res.data.code === 200) {
+          console.log(res.data.url);
+          this.$store.state.videoUrl = res.data.url;
+        }
+      });
+    },
+  },
+  created() {
+    this.getmv();
+    this.getmv1();
+    this.getmv2();
+    this.getmv3();
+  },
   mounted() {},
   beforeCreate() {},
   beforeMount() {},
@@ -147,13 +142,13 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   activated() {},
-  components: {},
+  components: { Figure },
 };
 </script>
 
 <style lang="scss" scoped>
 .recommend {
-  padding: 0.2rem;
+  padding: 0 0.2rem;
   position: fixed;
   top: 1rem;
   bottom: 1rem;
@@ -163,9 +158,9 @@ export default {
   box-sizing: border-box;
   .boke {
     padding: 0.2rem;
-    border: 1px solid red;
+    border: 1px solid #000;
     border-radius: 0.4rem;
-    margin: 0.5rem 0.2rem;
+    margin: 0.4rem 0.2rem;
     display: flex;
     justify-content: space-between;
     // background: pink;
@@ -198,26 +193,34 @@ export default {
       flex-wrap: wrap;
       justify-content: space-between;
       figure {
-        margin: 10px 0;
+        margin-top: 0.2rem;
         width: 30%;
-        background: pink;
+        // height: 4rem;
+        // background: pink;
         figcaption {
-          margin: 0.2rem 0;
+          font-size: 0.26rem;
+          margin: 0.2rem 0.1rem;
         }
       }
     }
     img {
-      width: 100px;
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
     }
   }
   .my-swipe .van-swipe-item {
     color: #fff;
     font-size: 20px;
     line-height: 150px;
-    text-align: center;
-    background-color: #39a9ed;
+    // text-align: center;
+    // background-color: #39a9ed;
     border-radius: 20px;
     margin: 10px 0;
+    .picurl {
+      width: 100%;
+      height: 150px;
+    }
   }
 }
 </style>
