@@ -1,11 +1,20 @@
 <!-- 组件说明 -->
 <template>
     <div class='index'>
+        <van-nav-bar
+  title="标题"
+  left-text="返回"
+  right-text="按钮"
+  left-arrow
+  @click-left="onClickLeft"
+  @click-right="onClickRight"
+/>
         我的账号1
     </div>
 </template>
 
 <script>
+import { Toast } from 'vant';
     export default {
         components: {
 
@@ -22,7 +31,12 @@
 
         },
         methods: {
-
+onClickLeft() {
+      Toast('返回');
+    },
+    onClickRight() {
+      Toast('按钮');
+    },
         },
         created() {
 
@@ -41,4 +55,14 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 </script>
 
 <style lang='scss' scoped>
+
+.index{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(116, 167, 118);
+    z-index: 1;
+}
 </style>

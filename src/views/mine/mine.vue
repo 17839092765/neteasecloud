@@ -102,7 +102,7 @@ export default {
       });
     },
     person(){
-      this.$router.push("../mine/mylist/index.vue")
+      this.$router.push("/mine/mylist")
     }
   },
   created() {
@@ -285,6 +285,4 @@ export default {
     width: 90%;
   }
 }
- 
-
-
+</style>
