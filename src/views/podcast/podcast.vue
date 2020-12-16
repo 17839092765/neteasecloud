@@ -1,9 +1,9 @@
 <template>
   <div class="podcast">
-    <div class="xiding1">
+    <div>
       <van-sticky>
         <van-tabs v-model="active" swipeable animated class="van-tabs1">
-          <van-tab title="听听" to="/podcast/listen"></van-tab>
+          <van-tab title="歌手" to="/podcast/listen"></van-tab>
           <van-tab title="推荐" to="/podcast/recommend"></van-tab>
           <van-tab title="分类" to="/podcast/classify"></van-tab>
         </van-tabs>
