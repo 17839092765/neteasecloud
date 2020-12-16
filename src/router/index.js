@@ -10,6 +10,10 @@ const routes = [
     component: () => import("../components/login/login"),
   },
   {
+    path: "/xiupassword",
+    component: () => import("../components/login/children/xiugaipassword"),
+  },
+  {
     path: "/",
     redirect: "/find",
   },
@@ -275,10 +279,12 @@ router.beforeEach((to, from, next) => {
       next();
     }
   } else {
-    if (to.path == "/login") {
+    if (to.path == "/login" || to.path == "/xiupassword") {
       next();
     } else {
-      next("/login");
+      if (from.path != "/login" && from.path != "/xiupassword") {
+        next("/login");
+      }
     }
   }
 });

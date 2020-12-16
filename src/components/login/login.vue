@@ -17,22 +17,7 @@
         placeholder="手机号"
         :rules="[{ required: true, message: '请填写手机号' }]"
       />
-      <van-button
-        @click="yanzhengma"
-        size="small"
-        :loading="flag1"
-        type="info"
-        text="发送验证码(可直接用密码登录)(已失效)"
-        loading-text="发送完成请输入..."
-      />
-      <van-field
-        v-if="flag"
-        v-model="password"
-        type="password"
-        name="验证码"
-        label="验证码"
-        placeholder="验证码"
-      />
+
       <van-field
         v-if="!flag"
         v-model="password"
@@ -52,18 +37,10 @@
         >
           登录
         </van-button>
-        <van-button
-          v-if="flag"
-          @click="onSubmit"
-          round
-          block
-          type="info"
-          native-type="submit"
-        >
-          登录(验证码)
-        </van-button>
       </div>
     </van-form>
+
+    <button @click="xiupassword">忘记密码</button>
   </div>
 </template>
 
@@ -96,19 +73,7 @@
             }
           });
       },
-      onSubmit111() {
-        //   /captcha/verify?phone=13xxx&captcha=1597
-        console.log("验证码");
-        this.$request
-          .post(`/captcha/verify`, {
-            phone: this.username,
-            captcha: this.password,
-          })
-          .then((res) => {
-            console.log(res);
-            // this.$cookie.set("cookie", res.cookie);
-          });
-      },
+
       onSubmit() {
         // console.log("submit", values);
         this.$request
@@ -117,11 +82,13 @@
           )
           .then((res) => {
             console.log(res);
-
             this.$cookie.set("cookie", res.cookie);
             this.$cookie.set("uid", res.account.id);
             this.$router.push("/");
           });
+      },
+      xiupassword() {
+        this.$router.push("/xiupassword");
       },
     },
     created() {
