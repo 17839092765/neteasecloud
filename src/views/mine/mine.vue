@@ -45,7 +45,7 @@
         <p>音乐应用</p>
       </el-col>
     </el-row>
-    <el-row class="like">
+    <el-row class="like" >
       <el-col class="like-left" :span="4">
         <img
           src="https://p2.music.126.net/RrIyxp5PZccPsHPbuIz2Yg==/109951165167277809.jpg?param=40y40"
@@ -127,17 +127,18 @@
       console.log(uid);
       this.getlist();
       this.getuser();
+    
     },
-    mounted() {},
-    beforeCreate() {},
-    beforeMount() {},
-    beforeUpdate() {},
-    updated() {},
-    beforeDestroy() {},
-    destroyed() {},
-    activated() {},
-    components: {},
-  };
+  mounted() {},
+  beforeCreate() {},
+  beforeMount() {},
+  beforeUpdate() {},
+  updated() {},
+  beforeDestroy() {},
+  destroyed() {},
+  activated() {},
+  components: {},
+};
 </script>
 
 <style lang="scss" scoped>
