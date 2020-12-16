@@ -18,24 +18,24 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return { active: 2 };
-  },
-  computed: {},
-  watch: {},
-  methods: {},
-  created() {},
-  mounted() {},
-  beforeCreate() {},
-  beforeMount() {},
-  beforeUpdate() {},
-  updated() {},
-  beforeDestroy() {},
-  destroyed() {},
-  activated() {},
-  components: {},
-};
+  export default {
+    data() {
+      return { active: 0 };
+    },
+    computed: {},
+    watch: {},
+    methods: {},
+    created() {},
+    mounted() {},
+    beforeCreate() {},
+    beforeMount() {},
+    beforeUpdate() {},
+    updated() {},
+    beforeDestroy() {},
+    destroyed() {},
+    activated() {},
+    components: {},
+  };
 </script>
 
 <style lang="scss" scoped></style>

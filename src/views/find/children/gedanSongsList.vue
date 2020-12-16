@@ -26,7 +26,6 @@
             <span>
               {{ item.name }}
             </span>
-            <span v-if="item.id == hot[0].songId">{{ hot[0].reason }}</span>
           </p>
           <p>{{ item.ar[0].name }}-{{ item.al.name }}</p>
         </div>

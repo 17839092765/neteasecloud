@@ -45,7 +45,7 @@
         <p>音乐应用</p>
       </el-col>
     </el-row>
-    <el-row class="like" >
+    <el-row class="like">
       <el-col class="like-left" :span="4">
         <img
           src="https://p2.music.126.net/RrIyxp5PZccPsHPbuIz2Yg==/109951165167277809.jpg?param=40y40"
@@ -79,7 +79,7 @@
       </van-tab>
       <van-tab title="歌单助手" name="c">内容 3</van-tab>
     </van-tabs>
-    <router-view></router-view>
+    <keep-alive><router-view></router-view></keep-alive>
   </div>
 </template>
 
@@ -127,22 +127,27 @@
       console.log(uid);
       this.getlist();
       this.getuser();
-    
     },
-  mounted() {},
-  beforeCreate() {},
-  beforeMount() {},
-  beforeUpdate() {},
-  updated() {},
-  beforeDestroy() {},
-  destroyed() {},
-  activated() {},
-  components: {},
-};
+    mounted() {},
+    beforeCreate() {},
+    beforeMount() {},
+    beforeUpdate() {},
+    updated() {},
+    beforeDestroy() {},
+    destroyed() {},
+    activated() {},
+    components: {},
+  };
 </script>
 
 <style lang="scss" scoped>
   .mine {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    bottom: 2rem;
+    left: 0;
+    overflow: scroll;
     img {
       width: 60px;
     }

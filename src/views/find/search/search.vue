@@ -8,16 +8,29 @@
     <div class="box">
       <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
         <van-list
-          offset="30"
+          offset="10"
           v-model="loading"
           :finished="finished"
           finished-text="没有更多了"
           @load="onLoad"
         >
-          <div v-for="item in list" :key="item._id" class="case">
+          <div
+            @click="
+              goToSong(
+                item.id,
+                item.name,
+                item.ar[0].name,
+                item.al.picUrl,
+                item
+              )
+            "
+            v-for="item in list"
+            :key="item.id + Math.random() * 1000000"
+            class="case"
+          >
             <div class="van-ellipsis">{{ item.name }}</div>
-            <div class="van-ellipsis">{{ item.artists[0].name }}</div>
-            <div class="van-ellipsis">{{ item.album.name }}</div>
+            <div class="van-ellipsis">{{ item.ar[0].name }}</div>
+            <div class="van-ellipsis">{{ item.al.name }}</div>
           </div>
         </van-list>
       </van-pull-refresh>
@@ -64,19 +77,23 @@
               this.refreshing = false;
             }
             this.$request
-              .get(
-                "/search?keywords=" +
-                  this.$store.state.search +
-                  "&end=" +
-                  "&offset=" +
-                  this.count +
-                  "&limit=" +
-                  this.num
-              )
-
+              // .post(
+              //   "/cloudsearch?keywords=" +
+              //     this.$store.state.search +
+              //     "&end=" +
+              //     "&offset=" +
+              //     this.count +
+              //     "&limit=" +
+              //     this.num
+              // )
+              .post("/cloudsearch", {
+                keywords: this.$store.state.search,
+                offset: this.count,
+                limit: this.num,
+              })
               .then((res) => {
                 console.log(res);
-                if (res.result.songs.length == 0) {
+                if (res.result.songs.length <= 0) {
                   this.finished = true;
                   console.log("33333333333333333333333333累了");
                 }
@@ -98,8 +115,29 @@
             //   this.finished = true;
             //   // this.refreshing = false;
             // }
-          }, 0);
+          }, 1000);
         }
+      },
+      goToSong(idd, title, artist, picUrl, item) {
+        console.log(item);
+        console.log(idd, title, artist);
+        this.$store.state.music.playYON = false;
+        let id = idd;
+        console.log(id);
+        this.$request
+          .post("/song/url", {
+            id,
+            cookie: this.$cookie.get("cookie"),
+          })
+          .then((res) => {
+            this.$store.state.music.songUrl = res.data[0].url;
+            this.$store.state.music.title = title;
+            this.$store.state.music.artist = artist;
+            this.$store.state.music.songpicUrl = picUrl;
+            console.log(res.data[0].url);
+            console.log(picUrl);
+            this.$store.state.music.playYON = true;
+          });
       },
     },
     created() {
@@ -122,8 +160,11 @@
     position: fixed;
     top: 1rem;
     left: 0;
+    // height: auto;
+    // box-sizing: border-box;
+    // padding-bottom: 1rem;
     width: 100%;
-    bottom: 0;
+    bottom: 1rem;
     overflow: scroll;
     // z-index: 10;
     background: rgb(255, 255, 255);

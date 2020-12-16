@@ -8,7 +8,7 @@
             @click="onSearch1"
             v-model="value"
             :show-action="showaction"
-            placeholder="请输入搜索关键词"
+            placeholder="请输入搜索关键词,按下回车或确定"
             @search="onSearch"
             @cancel="onCancel"
           />
