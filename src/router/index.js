@@ -80,6 +80,7 @@ const routes = [
     path: "/ksong",
     component: () => import("../views/ksong/ksong"),
   },
+  // 轲轲轲轲的路由---------------------------------------------------------------
   {
     path: "/cloud",
     component: () => import("../views/cloud/index.vue"),
@@ -131,6 +132,11 @@ const routes = [
             path: "/cloud/tuijian/hunjian",
             component: () =>
               import("../views/cloud/children/tuijain/children/hunjian.vue"),
+          },
+          {
+            path: "/cloud/tuijian/sou",
+            component: () =>
+              import("../views/cloud/children/tuijain/children/sou.vue"),
           },
         ],
       },
