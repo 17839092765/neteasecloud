@@ -45,7 +45,7 @@
         <p>音乐应用</p>
       </el-col>
     </el-row>
-    <el-row class="like">
+    <el-row class="like" @click="getlike">
       <el-col class="like-left" :span="4">
         <img
           src="https://p2.music.126.net/RrIyxp5PZccPsHPbuIz2Yg==/109951165167277809.jpg?param=40y40"
@@ -119,6 +119,9 @@ export default {
       console.log(111);
       this.$router.push("/mine/mylist");
     },
+    getlike(){
+      this.$router.push("/mylist/like")
+    }
   },
   created() {
     this.getlist();

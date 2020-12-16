@@ -72,6 +72,11 @@ const routes = [{
         component: () =>
             import ("../views/ksong/ksong"),
     },
+    {
+        path: "/audio",
+        component: () =>
+            import ("../views/audio/index"),
+    },
 
     {
         path: "/podcast",
@@ -103,8 +108,7 @@ const routes = [{
             path: "mylist",
             component: () =>
                 import ("../views/mine/mylist/index.vue")
-
-        }]
+        }, ]
     },
     {
         path: "/ksong",
