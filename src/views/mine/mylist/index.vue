@@ -2,14 +2,22 @@
 <template>
   <div class="index">
     <van-nav-bar
-      title="标题"
       left-text="返回"
       right-text="按钮"
       left-arrow
       @click-left="onClickLeft"
       @click-right="onClickRight"
     />
-    我的账号1
+    <div class="header">
+      <div class="photo"><img src="../../../assets/timg.jpg" alt="" /></div>
+      <div class="txt">
+        <p>1111</p>
+        <span>开通VIP</span>
+        <p>5关注 5粉丝</p>
+        <span>Lv.7</span>
+        <p>点击添加个人简介</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,6 +33,7 @@ export default {
   methods: {
     onClickLeft() {
       Toast("返回");
+      this.$router.push("/mine");
     },
     onClickRight() {
       Toast("按钮");
@@ -49,7 +58,49 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgb(116, 167, 118);
+  background: #f7f7f7;
   z-index: 1;
+}
+.header {
+  width: 90%;
+  height: 130px;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 100px;
+  img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #cecece;
+    border-radius: 50%;
+    position: fixed;
+    top: 100px;
+    left: 45%;
+  }
+  .txt {
+    float: left;
+    margin-top: 50px;
+    margin-left: 45%;
+  }
+  p:nth-child(1) {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  span:nth-child(1) {
+    display: block;
+    font-size: 14px;
+    width: 60px;
+    padding: 0 5px;
+    height: 22px;
+    line-height: 22px;
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    left: 110px;
+    bottom: 35px;
+  }
 }
 </style>

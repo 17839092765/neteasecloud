@@ -1,6 +1,6 @@
 <!-- 组件说明 -->
 <template>
-    <div class=''>
+    <div class='like'>
         我喜欢的歌单
     </div>
 </template>
