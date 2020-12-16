@@ -6,7 +6,7 @@
         <div class="audioD1-1">
           <i class="el-icon-back"></i>
           <div class="audioD1-geming">
-            <span>{{ 一念之间 }}</span
+            <span>{{ "一念之间" }}</span
             ><br />
             <time><a href="#">张杰></a></time>
           </div>
@@ -106,11 +106,11 @@ export default {
     },
     // 方法
     getge(id) {
-      axios.get(`/api/song/url?id=${id}`).then((res) => {
+      this.$request.get(`/song/url?id=${id}`).then((res) => {
         console.log(id);
         console.log(res);
-        console.log(res.data.data[0].url);
-        this.url = res.data.data[0].url;
+        console.log(res.data[0].url);
+        this.url = res.data[0].url;
       });
     },
     // manname() {},
