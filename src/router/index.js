@@ -99,6 +99,12 @@ const routes = [{
         path: "/mine",
         component: () =>
             import ("../views/mine/mine"),
+        children: [{
+            path: "mylist",
+            component: () =>
+                import ("../views/mine/mylist/index.vue")
+
+        }]
     },
     {
         path: "/ksong",

@@ -2,14 +2,14 @@
   <div class="mine">
     <div class="header">
       <div class="photo">
-        <img src="../../assets/timg.jpg" alt="" />
-        <p>1111111111</p>
+        <img :src="usermsg.userimg" alt="" />
+        <p>{{usermsg.name}}</p>
         <p>
           <span>开通VIP</span>
-          <span>Lv.7</span>
+          <span>Lv.{{usermsg.level}}</span>
         </p>
       </div>
-      <van-icon name="arrow" @click="person"/>
+      <van-icon name="arrow" @click="person" />
     </div>
     <el-row class="list">
       <el-col :span="6" class="list-inner">
@@ -52,7 +52,7 @@
           alt=""
         />
       </el-col>
-      <el-col class="like-main" :span="12" >
+      <el-col class="like-main" :span="12">
         <p>我喜欢的音乐</p>
         <p>199首</p>
       </el-col>
@@ -90,6 +90,11 @@ export default {
     return {
       activeName: "a",
       musiclist: [],
+      usermsg:{
+        name:'',
+        userimg:'',
+        level:''
+      }
     };
   },
   computed: {},
@@ -98,15 +103,26 @@ export default {
     getlist() {
       this.$request.get("/user/playlist?uid=1319804936").then((res) => {
         this.musiclist = res.playlist;
-        console.log(this.musiclist);
+        console.log(res);
       });
     },
-    person(){
-      this.$router.push("/mine/mylist")
-    }
+    getuser() {
+      this.$request.post(`user/detail?uid=1319804936`).then((res) => {
+        console.log(res);
+        // this.usermsg=res
+        this.usermsg.name=res.profile.nickname;
+        this.usermsg.userimg=res.profile.avatarUrl;
+        this.usermsg.level=res.level;
+      });
+    },
+    person() {
+      console.log(111);
+      this.$router.push("/mine/mylist");
+    },
   },
   created() {
     this.getlist();
+    this.getuser();
   },
   mounted() {},
   beforeCreate() {},
@@ -281,7 +297,7 @@ export default {
       background: #fff;
     }
   }
-  .musiclist{
+  .musiclist {
     width: 90%;
   }
 }
