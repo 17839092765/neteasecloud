@@ -9,15 +9,22 @@
     </van-grid>
     <!-- 精选MV -->
     <div class="bodan">
-      <div class="bodan-top" v-for="item in dtname" :key="item.pic56x56Id">
-        <p>{{ item.name }}</p>
-        <van-tag plain type="primary">更多></van-tag>
-      </div>
-      <div class="bodan-bottom">
-        <figure v-for="item in allmv" :key="item.artistId">
-          <img :src="item.cover" alt="" />
-          <figcaption>{{ item.name }}</figcaption>
-        </figure>
+      <div
+        class="bodan-top"
+        v-for="item in dtname"
+        :key="item.pic56x56Id"
+        @click="postId(item.id)"
+      >
+        <div class="bodan-tit">
+          <p>{{ item.name }}</p>
+          <van-tag plain type="primary">更多></van-tag>
+        </div>
+        <div class="bodan-bottom">
+          <figure v-for="item in alllist" :key="item.artistId">
+            <img :src="item.picUrl" alt="" />
+            <figcaption>{{ item.name }}</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </div>
@@ -27,6 +34,8 @@
 export default {
   data() {
     return {
+      // postId: "",
+      alllist: [],
       dtname: [],
     };
   },
@@ -38,6 +47,21 @@ export default {
         console.log(res.categories);
         this.dtname = res.categories;
       });
+    },
+    postId(id1) {
+      let id = id1;
+      console.log(id);
+      this.dtname.forEach((element) => {
+        console.log(element.id);
+      });
+      this.$request
+        .post("/dj/recommend/type?", {
+          type: id,
+        })
+        .then((res) => {
+          console.log(res.djRadios);
+          this.alllist = res.djRadios;
+        });
     },
   },
   created() {
@@ -61,8 +85,12 @@ img {
 }
 .bodan {
   .bodan-top {
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
+    .bodan-tit {
+      display: flex;
+      justify-content: space-between;
+    }
     p {
       font-size: 0.32rem;
       font-weight: 600;
