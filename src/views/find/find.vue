@@ -132,6 +132,8 @@
         }
       },
       getsonglistcase(id) {
+        this.$store.state.gedanSongsList = [];
+
         this.$request
           .post("/playlist/detail", {
             cookie: this.$cookie.get("cookie"),
@@ -149,11 +151,15 @@
 
             this.ids1 = this.ids.slice(0, this.ids.length - 1);
             // console.log(this.ids1);
-            this.$request.get(`/song/detail?ids=${this.ids1}`).then((mon) => {
-              console.log(1111111, mon.songs);
-              this.$store.state.gedanSongsList = mon.songs;
-            });
-            this.$router.push("/find/gedanSongsList");
+            this.$request
+              .get(`/song/detail?ids=${this.ids1}`)
+              .then((mon) => {
+                console.log(1111111, mon.songs);
+                this.$store.state.gedanSongsList = mon.songs;
+              })
+              .then((aa) => {
+                this.$router.push("/find/gedanSongsList");
+              });
           });
       },
     },
@@ -215,6 +221,7 @@
     box-sizing: border-box;
   }
   .my-swipe .van-swipe-item {
+    // width: 80%;
     .pic {
       width: 100%;
       img {

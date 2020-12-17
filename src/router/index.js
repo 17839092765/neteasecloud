@@ -23,6 +23,10 @@ const routes = [
         component: () => import("../views/find/search/search"),
       },
       {
+        path: "gedanSongsList",
+        component: () => import("../views/find/children/gedanSongsList"),
+      },
+      {
         path: "dayday",
         component: () => import("../views/find/dayday/dayday"),
       },

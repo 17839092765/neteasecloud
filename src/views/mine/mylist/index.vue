@@ -40,6 +40,7 @@
         this.$cookie.remove("cookie");
         this.$cookie.remove("uid");
         this.$router.push("/");
+        history.go(0);
       },
     },
     created() {},
