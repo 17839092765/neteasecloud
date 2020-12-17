@@ -5,6 +5,7 @@
         <form action="/">
           <van-search
             shape="round"
+            autofocus="true"
             @click="onSearch1"
             v-model="value"
             :show-action="showaction"
@@ -87,7 +88,7 @@
     data() {
       return {
         value: "",
-        showaction: false,
+        showaction: true,
         banner: [],
         gedanlist: [],
         ids: String,
@@ -118,11 +119,12 @@
         Toast(val);
         this.$store.state.search = val;
         console.log(this.$store.state.search);
+        this.onSearch1();
       },
       onCancel() {
         Toast("取消");
         console.log(this.$route.path);
-        this.showaction = false;
+        this.showaction = true;
         this.$store.state.footer = true;
 
         if (this.$route.path == "/find/search") {
@@ -198,6 +200,14 @@
 </script>
 
 <style lang="scss" scoped>
+  .find {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: scroll;
+  }
   .header {
     height: 1rem;
     width: 100%;

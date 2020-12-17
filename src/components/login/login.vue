@@ -37,10 +37,16 @@
         >
           登录
         </van-button>
+        <van-button
+          style="marginTop: 16px;"
+          round
+          block
+          @click="xiupassword"
+          type="primary"
+          >忘记密码?</van-button
+        >
       </div>
     </van-form>
-
-    <button @click="xiupassword">忘记密码</button>
   </div>
 </template>
 
@@ -82,9 +88,13 @@
           )
           .then((res) => {
             console.log(res);
-            this.$cookie.set("cookie", res.cookie);
-            this.$cookie.set("uid", res.account.id);
-            this.$router.push("/");
+            if (res.code == 502) {
+              alert(res.message);
+            } else if (res.code == 200) {
+              this.$cookie.set("cookie", res.cookie);
+              this.$cookie.set("uid", res.account.id);
+              this.$router.push("/");
+            }
           });
       },
       xiupassword() {

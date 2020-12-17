@@ -106,7 +106,7 @@
   .dayday {
     position: fixed;
     width: 100%;
-    top: 0rem;
+    top: 1rem;
     left: 0;
     bottom: 2rem;
     overflow: scroll;

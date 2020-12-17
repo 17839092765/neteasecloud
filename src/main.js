@@ -25,7 +25,6 @@ Vue.prototype.$request = request;
 
 import cookie from "js-cookie";
 Vue.prototype.$cookie = cookie;
-
 Vue.config.productionTip = false;
 new Vue({
   router,
