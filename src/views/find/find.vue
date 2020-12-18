@@ -488,6 +488,12 @@
   }
 
   // -------------------------
+  .wrapper {
+    margin-top: 1rem;
+    // width: 1rem;
+    // height: 1rem;
+  }
+
   li {
     margin: 1rem auto;
     width: 90%;
