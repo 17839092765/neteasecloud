@@ -51,6 +51,8 @@
 </template>
 
 <script>
+  import { Toast } from "vant";
+
   import cookie from "js-cookie";
   export default {
     data() {
@@ -89,7 +91,7 @@
           .then((res) => {
             console.log(res);
             if (res.code == 502) {
-              alert(res.message);
+              Toast(res.message);
             } else if (res.code == 200) {
               this.$cookie.set("cookie", res.cookie);
               this.$cookie.set("uid", res.account.id);

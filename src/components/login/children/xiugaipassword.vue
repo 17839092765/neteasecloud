@@ -60,7 +60,9 @@
 </template>
 
 <script>
-  import axios from "axios";
+  import { Toast } from "vant";
+
+  // import axios from "axios";
 
   export default {
     data() {
@@ -85,10 +87,11 @@
               password: this.password,
             })
             .then((res) => {
+              Toast("密码修改成功");
               console.log(res);
             });
         } else {
-          alert("两次密码不一样");
+          Toast("两次密码不一样");
         }
       },
       yanzheng() {
@@ -100,6 +103,9 @@
           })
           .then((res) => {
             console.log(res);
+            if (res.code == 200) {
+              Toast("验证成功");
+            }
           });
       },
       sendMa() {
@@ -109,6 +115,9 @@
           })
           .then((res) => {
             console.log(res);
+            if (res.code == 200) {
+              Toast("发送成功");
+            }
           })
           .catch((err) => {
             alert("每日只能发送5次");
